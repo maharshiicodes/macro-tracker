@@ -6,8 +6,9 @@ import { globalStyles } from '@/styles/global';
 import { useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { ScrollView, Text , View } from 'react-native';
+import CopyButton from '@/components/CopyButton';
 import ShareButton from '@/components/ShareButton';
-
+import ReminderToggle from '@/components/ReminderToggle';
 export default function HomeScreen() {
   const [meals, setMeals] = useState<Meal[]>([]);
 
@@ -31,6 +32,8 @@ export default function HomeScreen() {
 </View>
       <HomeHeader />
       <MacroGrid meals = {meals}  />
+      <CopyButton meals={meals} />
+      <ReminderToggle />
       <RecentMeals meals = {meals} onDelete={loadMeals} />
     </ScrollView>
   ); 
